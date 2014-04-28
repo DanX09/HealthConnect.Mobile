@@ -2,7 +2,7 @@ require.config({
     paths: {
         jQuery: "libs/jquery.min",
         kendo: "libs/kendo.mobile.min",
-        DateHelper: "libs/DateHelper",
+        dateHelper: "libs/dateHelper",
     },
     shim: {
         jQuery: {
