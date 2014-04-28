@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div data-role="view">
+    </div>
+
+<div data-role="drawer" id="health-connect-drawer" style="width: 270px">
+    <ul data-role="listview" data-type="group">
+        <li>
+            <ul>
+                <li data-icon="Incoming"><a href="views/incoming.html" data-transition="none">Incoming Referrals</a></li>
+                <li data-icon="Appointments"><a href="views/ReferralAppointments.html" data-transition="none">Referral Appointments</a></li>
+                <li data-icon="History"><a href="views/history.html" data-transition="none">Referral History</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div data-role="layout" data-id="drawer-layout">
+    <header data-role="header">
+        <div data-role="navbar">
+            <a data-role="button" data-rel="drawer" href="#health-connect-drawer" data-icon="drawer-button" data-align="left"></a>
+            <span data-role="view-title"></span>
+        </div>
+    </header>
+</div>
+
+<script>
+    // reset global drawer instance, for demo purposes
+    kendo.mobile.ui.Drawer.current = null;
+</script>
+
+<style>
+    .km-ios #health-connect-drawer .km-content, .km-android #health-connect-drawer .km-content, .km-blackberry #health-connect-drawer .km-content,
+    .km-ios #health-connect-drawer .km-list > li, .km-android #health-connect-drawer .km-list > li, .km-blackberry #health-connect-drawer .km-list > li,
+    .km-ios #health-connect-drawer .km-listview-link > .km-icon, .km-android #health-connect-drawer .km-listview-link > .km-icon, .km-blackberry #health-connect-drawer .km-listview-link > .km-icon,
+    .km-ios #health-connect-drawer .km-list li > .km-icon, .km-android #health-connect-drawer .km-list li > .km-icon, .km-blackberry #health-connect-drawer .km-list li > .km-icon
+    {
+        background-color: #4e4e4e;
+        color: #fff;
+    }
+
+    .km-drawer-button:before, .km-drawer-button:after  { content: "\E077"; }
+</style>
+
+
+
+</body>
+</html>
