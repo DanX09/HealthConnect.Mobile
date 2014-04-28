@@ -1,16 +1,19 @@
-(function (global) {
-    var LoginViewModel,
-        app = global.app = global.app || {};
-
-    LoginViewModel = kendo.data.ObservableObject.extend({
+define(
+['jQuery', 'kendo', 'text!../../../views/login.html'],
+function ($, kendo, loginHtml) {
+    var viewModel = kendo.observable({
         isLoggedIn: false,
         username: "",
         password: "",
+		onLogin: onLogin,
+		onLogout: onLogout,
+		clearForm: clearForm,
+		checkEnter: checkEnter
+	});
 
-        onLogin: function () {
-            var that = this,
-                username = that.get("username").trim(),
-                password = that.get("password").trim();
+        function onLogin() {
+                username = viewModel.get("username").trim(),
+                password = viewModel.get("password").trim();
 
             if (username === "" || password === "") {
                 navigator.notification.alert("Both fields are required!",
@@ -23,7 +26,7 @@
               { userName: username, password: password, api: true })
                 .done(function (e)
                 {
-                  that.set("isLoggedIn", true);
+                  viewModel.set("isLoggedIn", true);
                 })
                 .error(function (e) {
                 navigator.notification.alert("Invalid username or password",
@@ -31,31 +34,25 @@
                 });
         },
 
-        onLogout: function () {
-            var that = this;
-
-            that.clearForm();
-            that.set("isLoggedIn", false);
+        function onLogout() {
+            viewModel.clearForm();
+            viewModel.set("isLoggedIn", false);
         },
 
-        clearForm: function () {
-            var that = this;
-
-            that.set("username", "");
-            that.set("password", "");
+        function clearForm() {
+            viewModel.set("username", "");
+            viewModel.set("password", "");
         },
 
-        checkEnter: function (e) {
-            var that = this;
-
+        function checkEnter(e) {
             if (e.keyCode == 13) {
                 $(e.target).blur();
-                that.onLogin();
+                viewModel.onLogin();
             }
         }
-    });
-
-    app.loginService = {
-        viewModel: new LoginViewModel()
+		
+		return {
+					html: loginHtml
+				}
     };
-})(window);
+})
