@@ -12,6 +12,7 @@ define(
     		    main: require('app/views/layout')
     	    },
     	    kendoViews = {
+                home: require('app/views/home'),
                 history: require('app/views/history'),
                 login: require('app/views/login'),
                 appointments: require('app/views/referralAppointments'),
@@ -40,11 +41,11 @@ define(
         
         function initKendo() {
             
-            function onInit(initialView) {
+            function onInit() {
                 kendoApp = new kendo.mobile.Application(document.body, {
                     transition: 'slide',
                     skin: 'flat',
-                    initial: login,
+                    initial: home,
                     layout: 'app-layout',
                     loading: '<img src="styles/images/ajax-loader.gif"/><h1>Please wait...</h1>'
                 });
