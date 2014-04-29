@@ -5,15 +5,9 @@ function ($, kendo, loginHtml) {
         isLoggedIn: false,
         username: "",
         password: "",
-		onLogin: onLogin,
-		onLogout: onLogout,
-		clearForm: clearForm,
-		checkEnter: checkEnter
-	});
-
-        function onLogin() {
-                username = viewModel.get("username").trim(),
-                password = viewModel.get("password").trim();
+		onLogin: function onLogin() {
+                username = this.get("username").trim(),
+                password = this.get("password").trim();
 
             if (username === "" || password === "") {
                 navigator.notification.alert("Both fields are required!",
@@ -24,35 +18,45 @@ function ($, kendo, loginHtml) {
 
             $.post('http://localhost:5286/Account/Login',
               { userName: username, password: password, api: true })
-                .done(function (e)
+                .done(function(e)
                 {
-                  viewModel.set("isLoggedIn", true);
+                  this.set("isLoggedIn", true);
                 })
-                .error(function (e) {
+                .error(function(e) {
                 navigator.notification.alert("Invalid username or password",
                     function () { }, "Login failed", 'OK');
                 });
         },
-
-        function onLogout() {
-            viewModel.clearForm();
-            viewModel.set("isLoggedIn", false);
+		onLogout: function () {
+            this.clearForm();
+            this.set("isLoggedIn", false);
         },
-
-        function clearForm() {
-            viewModel.set("username", "");
-            viewModel.set("password", "");
+		clearForm: function () {
+            this.set("username", "");
+            this.set("password", "");
         },
-
-        function checkEnter(e) {
+		checkEnter: function(e) {
             if (e.keyCode == 13) {
                 $(e.target).blur();
-                viewModel.onLogin();
+                this.onLogin();
             }
         }
-		
-		return {
-					html: loginHtml
-				}
+	});
+    return {
+        html: loginHtml,
+        
+        init: function(e) {
+            viewModel.clearForm();
+        },
+        
+        beforeShow: function (e) {
+            
+        },
+        
+        show: function (e) {
+            
+        },
+        
+        viewModel: viewModel
     };
 })

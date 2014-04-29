@@ -1,13 +1,15 @@
 define(
-['jQuery', 'kendo', 'text!../../../views/home.html'],
-function ($, kendo, homeHtml) {
+['jQuery', 'kendo', 'dateHelper', 'text!../../../views/referralAppointments.html'],
+function ($, kendo, dateHelper, referralAppointmentsHtml) {
       
       var viewModel = kendo.observable({
-          
+          dateRangeStart: dateTime(),
+          dateRangeEnd: dateTime(),
+          today: dateTime()
       });
     
     return {
-        html: homeHtml,
+        html: referralAppointmentsHtml,
                     		
         init: function(e) {
             

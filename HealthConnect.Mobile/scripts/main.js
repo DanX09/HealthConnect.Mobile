@@ -11,7 +11,11 @@ require.config({
         kendo: {
             deps: ["jQuery"],
             exports: "kendo"
-        }
+        },
+        dateHelper: {
+            deps: ["jQuery"],
+            exports: "dateHelper"
+            }
     }
 });
 

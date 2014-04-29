@@ -45,8 +45,8 @@ define(
                 kendoApp = new kendo.mobile.Application(document.body, {
                     transition: 'slide',
                     skin: 'flat',
-                    initial: home,
-                    layout: 'app-layout',
+                    initial: login,
+                    layout: 'drawer-layout',
                     loading: '<img src="styles/images/ajax-loader.gif"/><h1>Please wait...</h1>'
                 });
             }
