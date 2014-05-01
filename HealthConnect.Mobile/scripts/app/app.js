@@ -17,9 +17,7 @@ define(
                 login: require('app/views/login'),
                 appointments: require('app/views/referralAppointments'),
                 incoming: require('app/views/incoming'),
-    	    },
-            userService = require('app/userService'),
-            utils = require('app/utils');
+    	    };
         
         // Loop through all kendo layouts and views and spit their HTML into the BODY
     	function onBeforeInit() {
@@ -40,14 +38,10 @@ define(
     	}
         
         function initKendo() {
-            
             function onInit() {
                 kendoApp = new kendo.mobile.Application(document.body, {
-                    transition: 'slide',
-                    skin: 'flat',
                     initial: login,
-                    layout: 'drawer-layout',
-                    loading: '<img src="styles/images/ajax-loader.gif"/><h1>Please wait...</h1>'
+                    layout: 'drawer-layout'
                 });
             }
             
@@ -55,13 +49,6 @@ define(
              * We have to load up kendo once we know if the user is
              * signed in or not in order to determine which view to start with
              */
-            userService.isSignedIn()
-                .done(function() {
-                    onInit('home-view');
-                })
-                .fail(function() {
-                    onInit('login-view');     
-                });
 
         }
         
@@ -72,7 +59,6 @@ define(
             },
             kendoApp: function() { return kendoApp; },
             layouts: kendoLayouts,
-            utils: utils,
             views: kendoViews
         }
     }

@@ -1,23 +1,17 @@
-<!DOCTYPE html>
 
-<html>
-    <head>
-        <title>Referral Incoming</title>
-    </head>
-    <body>
          <div id="tabstrip-incoming" data-role="view" data-title="Incoming Referrals" 
-             data-model="app.incomingService.viewModel"
-             data-show="app.incomingService.viewModel.refreshData">
+             data-model="app.views.incoming.viewModel"
+             data-show="app.views.incoming.viewModel.refreshData">
            <div style="text-align: right">
              <a data-role="listview-link" data-bind="text: selectedTimeFrame.name" href="views/timeFrames.html"></a>
            </div>
         
       <ul data-icon="details" data-role="listview" data-template="incoming-template" 
-          data-source="app.incomingDataSource" 
-          data-click="app.incomingService.viewModel.listViewClick"></ul>
+          data-source="app.views.incoming.viewModel.incomingDataSource" 
+          data-click="app.views.incoming.viewModel.listViewClick"></ul>
         <script type="text/x-kendo-templ" id="incoming-template">
             <span>#: data.ReferralDate #</span>
-      		#= app.incomingService.viewModel.renderDetailsTemplate(data) #
+      		#= app.views.incoming.viewModel.renderDetailsTemplate(data) #
 		</script>
         <script id="incoming-details-template" type="text/x-kendo-template">
            <ul style="list-style: none;" class="incoming-details">
@@ -33,6 +27,4 @@
             </ul>
 		</script>
     </div>
-    </body>
-</html>
 

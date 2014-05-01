@@ -1,8 +1,9 @@
 require.config({
     paths: {
-        jQuery: "libs/jquery.min",
-        kendo: "libs/kendo.mobile.min",
-        dateHelper: "libs/dateHelper",
+        jQuery: "lib/jquery.min",
+        kendo: "lib/kendo.mobile.min",
+        dateHelper: "lib/dateHelper",
+        text: 'lib/text'
     },
     shim: {
         jQuery: {
@@ -23,7 +24,7 @@ require.config({
 var app;
 
 require(
-    ['jQuery', 'DateHelper'],
+    ['jQuery','app/app'],
     function ($, application) {
         app = application;
         

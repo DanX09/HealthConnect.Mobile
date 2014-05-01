@@ -1,8 +1,6 @@
 define(
     ['jQuery', 'kendo'],
     function($, kendo){
-	
-		function dateTime() {
 			if (arguments.length == 0) {
 				this.date = new Date();
 			}
@@ -138,12 +136,6 @@ define(
 					mss: Math.round(this.date.getMilliseconds()/10) < 10 ? "0" + Math.round(this.date.getMilliseconds()/10) : Math.round(this.date.getMilliseconds()/10),
 					msss: (this.date.getMilliseconds() < 100) ? (this.date.getMilliseconds() < 10) ? "00" + this.date.getMilliseconds() : "0" + this.date.getMilliseconds() : this.date.getMilliseconds()
 				}
-			};
 		};
-		
-		var dateHelper = {
-			dateTime: dateTime
-			
-		return dateHelper;
 	}
 );

@@ -37,6 +37,10 @@ define(
                 initAjaxLoader();
             },
             
+            onViewChange: function(e) {
+
+            },
+            
     		viewModel: viewModel
     	};
     }
