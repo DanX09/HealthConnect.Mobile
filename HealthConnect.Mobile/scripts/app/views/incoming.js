@@ -4,11 +4,11 @@ function ($, kendo, incomingHtml) {
       
       var viewModel = kendo.observable({
           selectedTimeFrame: {name: "1 week", value: "7"},
-          incomingDataSource = new kendo.data.DataSource.create({
+          incomingDataSource: new kendo.data.DataSource.create({
               transport: {
                   read: {
                       url:"http://localhost:5286/Api/Mobile/Incoming",
-                      data: {timeFrame: app.incomingService.viewModel.selectedTimeFrame.value}
+                      data: {timeFrame: "7"}
                   }
               }
           }),
@@ -24,9 +24,9 @@ function ($, kendo, incomingHtml) {
           },
           refreshData: function(e) {
               if(e.view.params.timeFrameValue) {
-                  app.incomingService.viewModel.set("selectedTimeFrame", {name: e.view.params.timeFrameName, value: e.view.params.timeFrameValue});
+                  app.views.incoming.viewModel.set("selectedTimeFrame", {name: e.view.params.timeFrameName, value: e.view.params.timeFrameValue});
               }
-              app.incomingDataSource.read({timeFrame: app.incomingService.viewModel.get("selectedTimeFrame").value});
+              app.incomingDataSource.read({timeFrame: app.views.incoming.viewModel.get("selectedTimeFrame").value});
           }
       });
     

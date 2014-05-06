@@ -4,11 +4,11 @@ function ($, kendo, historyHtml) {
  
     var viewModel = kendo.observable({
         selectedTimeFrame: {name: "1 week", value: "7"},
-        historyDataSource = new kendo.data.DataSource.create({
+        historyDataSource: new kendo.data.DataSource.create({
             transport: {
                 read: {
                     url:"http://localhost:5286/Api/Mobile/History",
-                	data: {timeFrame: this.selectedTimeFrame.value}
+                	data: {timeFrame: "7"}
                 }
             }
         }),

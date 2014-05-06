@@ -40,7 +40,7 @@ define(
         function initKendo() {
             function onInit() {
                 kendoApp = new kendo.mobile.Application(document.body, {
-                    initial: login,
+                    initial: "login-view",
                     layout: 'drawer-layout'
                 });
             }

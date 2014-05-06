@@ -1,7 +1,7 @@
 require.config({
     paths: {
         jQuery: "lib/jquery.min",
-        kendo: "lib/kendo.mobile.min",
+        kendo: "lib/kendo.all.min",
         dateHelper: "lib/dateHelper",
         text: 'lib/text'
     },
