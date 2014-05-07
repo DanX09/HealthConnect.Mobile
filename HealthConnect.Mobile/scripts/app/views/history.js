@@ -22,14 +22,15 @@ function ($, kendo, historyHtml) {
         renderDetailsTemplate: function(data) {
     		return kendo.Template.compile($('#history-details-template').html())(data);
         },
-        refreshData: function(e) {
-              if(e.view.params.timeFrameValue) {
-            	this.set("selectedTimeFrame", {name: e.view.params.timeFrameName, value: e.view.params.timeFrameValue});
-                }
-              this.historyDataSource.read({timeFrame: this.get("selectedTimeFrame").value});
-          }
+        refreshData: refreshData
        }); 
     
+    function refreshData(e) {
+              if(e.view.params.timeFrameValue) {
+            	viewModel.set("selectedTimeFrame", {name: e.view.params.timeFrameName, value: e.view.params.timeFrameValue});
+                }
+              viewModel.historyDataSource.read({timeFrame: viewModel.get("selectedTimeFrame").value});
+          }
     return {
         html: historyHtml,
             		

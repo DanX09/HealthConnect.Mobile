@@ -2,7 +2,7 @@ require.config({
     paths: {
         jQuery: "lib/jquery.min",
         kendo: "lib/kendo.all.min",
-        dateHelper: "lib/date",
+        date: "lib/date",
         text: 'lib/text'
     },
     shim: {
@@ -13,7 +13,7 @@ require.config({
             deps: ["jQuery"],
             exports: "kendo"
         },
-        dateHelper: {
+        date: {
             deps: ["jQuery"],
             exports: "date"
             }

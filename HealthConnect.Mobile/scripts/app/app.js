@@ -7,6 +7,7 @@ define(
     		    main: require('app/views/layout')
     	    },
     	    kendoViews = {
+                timeFrames: require('app/views/timeFrames'),
                 menu: require('app/views/menu'),
                 history: require('app/views/history'),
                 login: require('app/views/login'),

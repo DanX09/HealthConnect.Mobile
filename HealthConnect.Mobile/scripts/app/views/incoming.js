@@ -22,13 +22,15 @@ function ($, kendo, incomingHtml) {
           renderDetailsTemplate: function(data) {
               return kendo.Template.compile($('#incoming-details-template').html())(data);
           },
-          refreshData: function(e) {
-              if(e.view.params.timeFrameValue) {
-                  app.views.incoming.viewModel.set("selectedTimeFrame", {name: e.view.params.timeFrameName, value: e.view.params.timeFrameValue});
-              }
-              app.incomingDataSource.read({timeFrame: app.views.incoming.viewModel.get("selectedTimeFrame").value});
-          }
+          refreshData: refreshData
       });
+    
+    function refreshData(e) {
+              if(e.view.params.timeFrameValue) {
+                  viewModel.set("selectedTimeFrame", {name: e.view.params.timeFrameName, value: e.view.params.timeFrameValue});
+              }
+              viewModel.incomingDataSource.read({timeFrame: viewModel.get("selectedTimeFrame").value});
+          }
     
     return {
         html: incomingHtml,
