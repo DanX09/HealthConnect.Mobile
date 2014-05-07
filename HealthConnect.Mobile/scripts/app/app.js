@@ -1,8 +1,3 @@
-/*(function (global) {
-    var app = global.app = global.app || {};
-    app.application = new kendo.mobile.Application(document.body, { layout: "drawer-layout", initial: "views/login.html"});
-})(window);*/
-
 define(
     function(require){
         var kendoApp,
@@ -12,10 +7,10 @@ define(
     		    main: require('app/views/layout')
     	    },
     	    kendoViews = {
-                home: require('app/views/home'),
+                menu: require('app/views/menu'),
                 history: require('app/views/history'),
                 login: require('app/views/login'),
-                appointments: require('app/views/referralAppointments'),
+                appointments: require('app/views/appointments'),
                 incoming: require('app/views/incoming'),
     	    };
         
@@ -49,7 +44,7 @@ define(
              * We have to load up kendo once we know if the user is
              * signed in or not in order to determine which view to start with
              */
-
+            onInit();
         }
         
         return {

@@ -1,57 +1,167 @@
 @import url('http://roboto-webfont.googlecode.com/svn/trunk/roboto.all.css');
 
-.km-ios #health-connect-drawer .km-content, .km-android #health-connect-drawer .km-content, .km-blackberry #health-connect-drawer .km-content,
-.km-ios #health-connect-drawer .km-list > li, .km-android #health-connect-drawer .km-list > li, .km-blackberry #health-connect-drawer .km-list > li,
-.km-ios #health-connect-drawer .km-listview-link > .km-icon, .km-android #health-connect-drawer .km-listview-link > .km-icon, .km-blackberry #health-connect-drawer .km-listview-link > .km-icon,
-.km-ios #health-connect-drawer .km-list li > .km-icon, .km-android #health-connect-drawer .km-list li > .km-icon, .km-blackberry #health-connect-drawer .km-list li > .km-icon
-{
-    background-color: #4e4e4e;
-    color: #fff;
-}
-
-.km-drawer-button:before, .km-drawer-button:after  
-{ 
-    content: "\E077";
-}
-
 /* IMAGES */
-.welcome-image {
-    background-image: url(../styles/images/logo.png);
-    background-repeat: no-repeat;
-    background-color:#011730;
-    height: 25px;
-    display: block;
-    margin: 0px auto;
-}
 .logo-image {
     background-image: url(../styles/images/logo.png);
+    background-position: 10px 10px;
     background-repeat: no-repeat;
     background-color:#011730;
-    height: 25px;
+    height: 45px;
     display: block;
     margin: 0px auto;
+}
+
+
+.km-ios7 .km-list>li:last-child {
+    box-shadow: inset 0 0 0 rgba(180,180,180,0.0) !important;
+-webkit-box-shadow: inset 0 0 0 rgba(180,180,180,0.0) !important;
 }
 
 /* LOGIN VIEW STYLES */
+#login-listview > li {
+    border: none !important;
+    padding: 10px;
+}
+
 .login-button {
     margin: 0 auto;
     display: block;
     width: 80%;
 }
 
+/* APPOINTMENTS VIEW STYLES */
+#days-of-week-list > li {
+    display: inline-block !important;
+    border: none !important;
+    text-align: center;
+    width: 14.2%;
+}
+
+/* TIME FRAMES VIEW STYLES*/
+#timeFrames > li {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+#timeFrames > li > div {
+    padding-left: 10px;
+    }
+
+
+
 .km-view-title {
     background-color:#122135;
     font-family:"roboto", sans-serif;
     color:#ffffff !important;
-    font-size:32px;
+    font-size:16px !important;
+}
+
+.km-navbar {
+    color: #FFFFFF !important;
+}
+
+.km-drawer-button:before, .km-drawer-button:after { 
+    content: "\e054";
+	color: #ffffff;
+    }
+
+#menu-items > li {
+    padding: 10px !important;
+}
+
+.km-appointments-icon:before, .km-appointments-icon:after,
+.km-incoming-icon:before, km-incoming-icon:after,
+.km-history-icon:before, km-history-icon:after{
+    color: #333333;
+    display: inline-block !important;
+    left: 7px;
+    bottom: 2px;
+}
+
+
+.km-appointments-icon:before, km-appointments-icon:after {
+    content: "\E089";
+}
+
+.km-incoming-icon:before, km-incoming-icon:after {
+    content: "\E096";
+}
+
+.km-history-icon:before, km-history-icon:after {
+    content: "\E08D";
+}
+
+.timeFrameLink {
+    text-align: right;
+    padding: 10px;
+}
+
+.timeFrameLink a {
+    text-decoration: none;
+    font-size: 10px;
+    color: #666666;
+}
+
+.selectedGroup {
+    background-color: #65b75e !important;
+    color: #ffffff !important;
+}  
+
+.listHeader {
+    background-color: LightGrey;
+}
+
+#incoming-referrals-list .listHeader {
+    background-color: #122135;
+    color: #ffffff;
+}
+
+.listHeaderSection {
+    padding: 10px;
+}
+
+.listHeaderSection span:nth-child(2) {
+    font-weight: bold;
+}
+
+.listHeaderTitle{
+    font-weight: lighter;
+    font-size: 12px;
+}
+
+.listHeaderDetail {
+    font-weight: lighter;
+    font-size: 10px;
+    float: right;
+}
+
+.km-list > li:first-child {
+    border-top: 0 !important;
+}
+
+.km-list > li {
+    border-image: none !important;
+    border-top: 1px solid #999999 !important;
+}
+
+.listItemDetail {
+    font-weight: lighter;
+    font-size: 10px;
+    color: #333333 !important;
+    background-color: #ebebeb;
+    }
+
+.history-details {
+    background-color: #e0f1df !important;
+}
+
+.listItemDetail > li {
+    padding: 10px !important;
+    border-top: 1px solid #999999 !important;
 }
 
 /* RETINA DISPLAY STYLES */
 @media only screen and (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
-    .welcome-image {
-        background-image: url(../styles/images/logo.png);
-        background-size: 100%;
-    }
     .logo-image {
         background-image: url(../styles/images/logo.png);
         background-size: 100%;
@@ -63,8 +173,33 @@
     float: right;
 }
 
+.padding-10 {
+    padding: 10px;
+}
+
+.center {
+    text-align: center;
+}
+
+.margin-10 {
+    margin: 10px;
+}
+
 ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
+
+li {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.no-records-message {
+    padding: 10px; 
+    width: 100%; 
+    text-align: center; 
+    font-style: italic; 
+    color: #999999;
+    }

@@ -46,7 +46,7 @@ function ($, kendo, loginHtml) {
         html: loginHtml,
         
         init: function(e) {
-            viewModel.clearForm();
+
         },
         
         beforeShow: function (e) {

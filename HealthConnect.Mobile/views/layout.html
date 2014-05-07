@@ -1,21 +1,16 @@
-<div data-role="layout" data-id="drawer-layout"
-    data-init="app.layouts.main.init">
+<div data-role="layout" data-id="drawer-layout">
     <header data-role="header">
         <div data-role="navbar">
-            <a data-role="button" data-rel="drawer" href="#health-connect-drawer" data-icon="drawer-button" data-align="left"></a>
+            <a data-role="button" href="views/menu.html" data-icon="drawer-button" data-align="left"></a>
             <span data-role="view-title"></span>
         </div>
     </header>
 </div>
-
-<div data-role="drawer" id="health-connect-drawer" style="width: 270px">
-    <ul data-role="listview" data-type="group">
-        <li>
-            <ul>
-                <li data-icon="Incoming"><a href="views/incoming.html" data-transition="none">Incoming Referrals</a></li>
-                <li data-icon="Appointments"><a href="views/ReferralAppointments.html" data-transition="none">Referral Appointments</a></li>
-                <li data-icon="History"><a href="views/history.html" data-transition="none">Referral History</a></li>
-            </ul>
-        </li>
-    </ul>
+    
+<div data-role="layout" data-id="unauthenticated-layout">
+    <header data-role="header">
+        <div data-role="navbar">
+            <span data-role="view-title"></span>
+        </div>
+    </header>
 </div>

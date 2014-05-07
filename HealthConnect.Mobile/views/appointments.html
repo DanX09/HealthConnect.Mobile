@@ -1,0 +1,49 @@
+        <div id="appointments-view" data-role="view" data-title="Referral Appointments" 
+             data-model="app.views.appointments.viewModel"
+             data-show="app.views.appointments.viewModel.onShow">
+            <div id="appointments-header">
+            <div class="center padding-10" data-role="touch" data-enable-swipe="1" 
+                data-swipe="app.views.appointments.viewModel.onSwipeMonth">
+                <span data-bind="text: month"></span>
+            </div>
+            <div data-role="touch" data-enable-swipe="1" 
+                data-swipe="app.views.appointments.viewModel.onWeekSwipe">
+                <ul id="days-of-week-list"  data-click="app.views.appointments.viewModel.onClick" 
+                    data-role="listview" data-template="day-of-week-template" 
+                    data-source="app.views.appointments.viewModel.daysOfWeek"></ul>
+                <script type="text/x-kendo-templ" id="day-of-week-template">
+                    <span>#: data.day #</span><br/>
+                    <span class="day-of-week-date">#: data.date #</span>
+                    <input type="hidden" class="day-of-week-month" value="#: data.month #"/>
+                    <input type="hidden" class="day-of-week-value" value="#: data.dateValue #"/>
+                </script>
+			</div>
+            </div>
+            <div data-bind="visible: noData" class="no-records-message">No appointments</div>
+
+            <div data-role="scroller" id="appointments-scroller">
+            <ul id="appointments-referrals-list" data-pull-to-refresh="true" data-role="listview"
+                data-template="appointments-template" 
+                data-source="app.views.appointments.appointmentsDataSource" data-bound="app.views.appointments.viewModel.onDataBound"></ul>
+            </div>
+            <script type="text/x-kendo-templ" id="appointments-template">
+                <div class="listHeader">
+            		<div class="listHeaderSection">
+                        <span>#: data.AppointmentDatePrefix #</span>
+                		<span>#: data.AppointmentDate #</span>
+                	</div>
+                </div>
+                #= app.views.appointments.viewModel.renderDetailsTemplate(data) #
+            </script>
+            <script id="appointments-details-template" type="text/x-kendo-template">
+                <ul class="appointments-details listItemDetail">
+                    # $.each(data.Offices, function (index, item) {
+                    #
+                    <li data-icon="details">
+                        <div>${item}</div>
+                    </li>#                        
+                    }); 
+                    #
+                </ul>
+            </script>
+        </div>

@@ -30,6 +30,12 @@ define(
             return path.match(captureView)[0];
         }
         
+        function removeExtraHeaders(e) {
+            e.layout.header.find('[data-role="sub-header"]').remove();
+            // Need to do this in order for kendo to populate the template if there is one
+            //e.view.element.find('[data-role="sub-header"]').show();
+        }
+        
     	return {
     		html: layoutHtml,
             
@@ -38,7 +44,7 @@ define(
             },
             
             onViewChange: function(e) {
-
+                removeExtraHeaders(e);
             },
             
     		viewModel: viewModel
